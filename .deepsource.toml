@@ -13,22 +13,7 @@ name = "python"
 name = "shell"
 
 [[transformers]]
-name = "yapf"
-
-[[transformers]]
-name = "autopep8"
-
-[[transformers]]
 name = "black"
-
-[[transformers]]
-name = "isort"
-
-[[transformers]]
-name = "ruff"
-
-[[transformers]]
-name = "standardjs"
 
 [[transformers]]
 name = "prettier"
