@@ -605,7 +605,7 @@ Shelf = _reflection.GeneratedProtocolMessageType(
     (_message.Message,),
     dict(
         DESCRIPTOR=_SHELF,
-        __module__="bookstore_pb2"
+        __module__="bookstore_pb2",
         # @@protoc_insertion_point(class_scope:endpoints.examples.bookstore.Shelf)
     ),
 )
@@ -616,7 +616,7 @@ Book = _reflection.GeneratedProtocolMessageType(
     (_message.Message,),
     dict(
         DESCRIPTOR=_BOOK,
-        __module__="bookstore_pb2"
+        __module__="bookstore_pb2",
         # @@protoc_insertion_point(class_scope:endpoints.examples.bookstore.Book)
     ),
 )
@@ -627,7 +627,7 @@ ListShelvesResponse = _reflection.GeneratedProtocolMessageType(
     (_message.Message,),
     dict(
         DESCRIPTOR=_LISTSHELVESRESPONSE,
-        __module__="bookstore_pb2"
+        __module__="bookstore_pb2",
         # @@protoc_insertion_point(class_scope:endpoints.examples.bookstore.ListShelvesResponse)
     ),
 )
@@ -638,7 +638,7 @@ CreateShelfRequest = _reflection.GeneratedProtocolMessageType(
     (_message.Message,),
     dict(
         DESCRIPTOR=_CREATESHELFREQUEST,
-        __module__="bookstore_pb2"
+        __module__="bookstore_pb2",
         # @@protoc_insertion_point(class_scope:endpoints.examples.bookstore.CreateShelfRequest)
     ),
 )
@@ -649,7 +649,7 @@ GetShelfRequest = _reflection.GeneratedProtocolMessageType(
     (_message.Message,),
     dict(
         DESCRIPTOR=_GETSHELFREQUEST,
-        __module__="bookstore_pb2"
+        __module__="bookstore_pb2",
         # @@protoc_insertion_point(class_scope:endpoints.examples.bookstore.GetShelfRequest)
     ),
 )
@@ -660,7 +660,7 @@ DeleteShelfRequest = _reflection.GeneratedProtocolMessageType(
     (_message.Message,),
     dict(
         DESCRIPTOR=_DELETESHELFREQUEST,
-        __module__="bookstore_pb2"
+        __module__="bookstore_pb2",
         # @@protoc_insertion_point(class_scope:endpoints.examples.bookstore.DeleteShelfRequest)
     ),
 )
@@ -671,7 +671,7 @@ ListBooksRequest = _reflection.GeneratedProtocolMessageType(
     (_message.Message,),
     dict(
         DESCRIPTOR=_LISTBOOKSREQUEST,
-        __module__="bookstore_pb2"
+        __module__="bookstore_pb2",
         # @@protoc_insertion_point(class_scope:endpoints.examples.bookstore.ListBooksRequest)
     ),
 )
@@ -682,7 +682,7 @@ ListBooksResponse = _reflection.GeneratedProtocolMessageType(
     (_message.Message,),
     dict(
         DESCRIPTOR=_LISTBOOKSRESPONSE,
-        __module__="bookstore_pb2"
+        __module__="bookstore_pb2",
         # @@protoc_insertion_point(class_scope:endpoints.examples.bookstore.ListBooksResponse)
     ),
 )
@@ -693,7 +693,7 @@ CreateBookRequest = _reflection.GeneratedProtocolMessageType(
     (_message.Message,),
     dict(
         DESCRIPTOR=_CREATEBOOKREQUEST,
-        __module__="bookstore_pb2"
+        __module__="bookstore_pb2",
         # @@protoc_insertion_point(class_scope:endpoints.examples.bookstore.CreateBookRequest)
     ),
 )
@@ -704,7 +704,7 @@ GetBookRequest = _reflection.GeneratedProtocolMessageType(
     (_message.Message,),
     dict(
         DESCRIPTOR=_GETBOOKREQUEST,
-        __module__="bookstore_pb2"
+        __module__="bookstore_pb2",
         # @@protoc_insertion_point(class_scope:endpoints.examples.bookstore.GetBookRequest)
     ),
 )
@@ -715,7 +715,7 @@ DeleteBookRequest = _reflection.GeneratedProtocolMessageType(
     (_message.Message,),
     dict(
         DESCRIPTOR=_DELETEBOOKREQUEST,
-        __module__="bookstore_pb2"
+        __module__="bookstore_pb2",
         # @@protoc_insertion_point(class_scope:endpoints.examples.bookstore.DeleteBookRequest)
     ),
 )
