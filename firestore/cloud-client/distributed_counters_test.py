@@ -41,7 +41,7 @@ def test_distributed_counters(fs_client):
     counter.init_counter(doc_ref)
 
     shards = doc_ref.collection("shards").list_documents()
-    shards_list = [shard for shard in shards]
+    shards_list = list(shards)
     assert len(shards_list) == 2
 
     counter.increment_counter(doc_ref)
@@ -54,7 +54,7 @@ def test_distributed_counters_cleanup(fs_client):
     doc_ref = col.document("distributed_counter")
 
     shards = doc_ref.collection("shards").list_documents()
-    shards_list = [shard for shard in shards]
+    shards_list = list(shards)
     for shard in shards_list:
         shard.delete()
 
