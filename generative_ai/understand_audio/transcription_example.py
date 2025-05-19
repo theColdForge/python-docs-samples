@@ -40,7 +40,9 @@ def transcript_audio() -> str:
 
     contents = [audio_file, prompt]
 
-    response = model.generate_content(contents, generation_config=GenerationConfig(audio_timestamp=True))
+    response = model.generate_content(
+        contents, generation_config=GenerationConfig(audio_timestamp=True)
+    )
 
     print(response.text)
     # Example response:

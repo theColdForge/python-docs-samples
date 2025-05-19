@@ -153,20 +153,19 @@ def calculate_soft_delete_costs(
         # 2. Update how you calculate 'relative_storage_class_cost' to factor in location
         soft_delete_ratio = data_point.point_data[0].values[0].double_value
         distribution_storage_class = bucket_name + " - " + storage_class
-        storage_class_ratio = storage_ratios_by_bucket.get(
-            distribution_storage_class
-        )
+        storage_class_ratio = storage_ratios_by_bucket.get(distribution_storage_class)
         if storage_class_ratio is None:
-            missing_distribution_storage_class.append(
-                distribution_storage_class)
-        buckets.setdefault(bucket_name, []).append({
-            # Include storage class and location data for additional plotting dimensions.
-            # "storage_class": storage_class,
-            # 'location': location,
-            "soft_delete_ratio": soft_delete_ratio,
-            "storage_class_ratio": storage_class_ratio,
-            "relative_storage_class_cost": get_relative_cost(storage_class),
-        })
+            missing_distribution_storage_class.append(distribution_storage_class)
+        buckets.setdefault(bucket_name, []).append(
+            {
+                # Include storage class and location data for additional plotting dimensions.
+                # "storage_class": storage_class,
+                # 'location': location,
+                "soft_delete_ratio": soft_delete_ratio,
+                "storage_class_ratio": storage_class_ratio,
+                "relative_storage_class_cost": get_relative_cost(storage_class),
+            }
+        )
 
     if missing_distribution_storage_class:
         print(
@@ -237,7 +236,7 @@ def soft_delete_relative_cost_analyzer(
     agg_days: int = 30,
     lookback_days: int = 360,
     list_buckets: bool = False,
-    ) -> str | dict[str, float]: # Note potential string output
+) -> str | dict[str, float]:  # Note potential string output
     """Identifies buckets exceeding the relative cost threshold for enabling soft delete.
 
     Args:
@@ -308,9 +307,7 @@ def soft_delete_relative_cost_analyzer_main() -> None:
         "--lookback_days",
         type=int,
         default=360,
-        help=(
-            "Time window (in days) for considering the how old the bucket to be."
-        ),
+        help=("Time window (in days) for considering the how old the bucket to be."),
     )
     parser.add_argument(
         "--list",

@@ -111,9 +111,11 @@ DATABASE_OBJECTS = [
     },
     {
         "airflow_db_model": TaskInstance,
-        "age_check_column": TaskInstance.start_date
-        if AIRFLOW_VERSION < ["2", "2", "0"]
-        else TaskInstance.start_date,
+        "age_check_column": (
+            TaskInstance.start_date
+            if AIRFLOW_VERSION < ["2", "2", "0"]
+            else TaskInstance.start_date
+        ),
         "keep_last": False,
         "keep_last_filters": None,
         "keep_last_group_by": None,
@@ -127,9 +129,9 @@ DATABASE_OBJECTS = [
     },
     {
         "airflow_db_model": XCom,
-        "age_check_column": XCom.execution_date
-        if AIRFLOW_VERSION < ["2", "2", "5"]
-        else XCom.timestamp,
+        "age_check_column": (
+            XCom.execution_date if AIRFLOW_VERSION < ["2", "2", "5"] else XCom.timestamp
+        ),
         "keep_last": False,
         "keep_last_filters": None,
         "keep_last_group_by": None,
@@ -157,9 +159,11 @@ try:
     DATABASE_OBJECTS.append(
         {
             "airflow_db_model": TaskReschedule,
-            "age_check_column": TaskReschedule.execution_date
-            if AIRFLOW_VERSION < ["2", "2", "0"]
-            else TaskReschedule.start_date,
+            "age_check_column": (
+                TaskReschedule.execution_date
+                if AIRFLOW_VERSION < ["2", "2", "0"]
+                else TaskReschedule.start_date
+            ),
             "keep_last": False,
             "keep_last_filters": None,
             "keep_last_group_by": None,

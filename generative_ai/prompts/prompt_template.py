@@ -32,7 +32,7 @@ def prompt_template_example() -> list[GenerationResponse]:
     variables = [
         {"animal": "Eagles", "activity": "eat berries"},
         {"animal": "Coyotes", "activity": "jump"},
-        {"animal": "Squirrels", "activity": "fly"}
+        {"animal": "Squirrels", "activity": "fly"},
     ]
 
     # define prompt template
@@ -40,7 +40,7 @@ def prompt_template_example() -> list[GenerationResponse]:
         prompt_data="Do {animal} {activity}?",
         model_name="gemini-1.5-flash-002",
         variables=variables,
-        system_instruction="You are a helpful zoologist"
+        system_instruction="You are a helpful zoologist",
         # generation_config=generation_config, # Optional
         # safety_settings=safety_settings, # Optional
     )
@@ -57,8 +57,8 @@ def prompt_template_example() -> list[GenerationResponse]:
         print(response.text, end="")
 
     # Example response
-        # Assembled prompt replacing: 1 instances of variable animal, 1 instances of variable activity
-        # Eagles are primarily carnivorous.  While they might *accidentally* ingest a berry......
+    # Assembled prompt replacing: 1 instances of variable animal, 1 instances of variable activity
+    # Eagles are primarily carnivorous.  While they might *accidentally* ingest a berry......
     # [END generativeaionvertexai_prompt_template]
     return responses
 

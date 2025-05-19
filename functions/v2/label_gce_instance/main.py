@@ -65,10 +65,10 @@ def label_gce_instance(cloudevent):
         "zone": instance_zone,
         "instance": instance_name,
     }
-    request_init[
-        "instances_set_labels_request_resource"
-    ] = compute.InstancesSetLabelsRequest(
-        label_fingerprint=instance.label_fingerprint, labels={"creator": creator}
+    request_init["instances_set_labels_request_resource"] = (
+        compute.InstancesSetLabelsRequest(
+            label_fingerprint=instance.label_fingerprint, labels={"creator": creator}
+        )
     )
     request = compute.SetLabelsInstanceRequest(request_init)
 
