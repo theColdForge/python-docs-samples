@@ -125,9 +125,7 @@ def inspect_table(
     for row in data["rows"]:
         rows.append({"values": [{"string_value": cell_val} for cell_val in row]})
 
-    table = {}
-    table["headers"] = headers
-    table["rows"] = rows
+    table = {"headers": headers, "rows": rows}
     item = {"table": table}
     # Convert the project id into a full resource id.
     parent = f"projects/{project}"
