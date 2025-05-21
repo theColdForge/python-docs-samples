@@ -13,4 +13,4 @@ name = "python"
 name = "shell"
 
 [[transformers]]
-name = "ruff"
+name = "prettier"
