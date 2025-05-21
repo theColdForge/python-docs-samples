@@ -93,6 +93,7 @@ def create_cloud_function(
     response = operation.result()
     print(response)
 
+
 # [END functions_create_function_v2]
 
 

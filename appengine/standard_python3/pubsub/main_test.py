@@ -101,10 +101,7 @@ def test_push_endpoint(monkeypatch, client, fake_token):
     assert r.status_code == 200
 
     # Push request without JWT token validation
-    url = (
-        "/pubsub/push?token="
-        + os.environ["PUBSUB_VERIFICATION_TOKEN"]
-    )
+    url = "/pubsub/push?token=" + os.environ["PUBSUB_VERIFICATION_TOKEN"]
 
     r = client.post(
         url,
