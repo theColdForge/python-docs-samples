@@ -99,6 +99,6 @@ def test_batch_gemini_predict_bigquery(output_folder: pytest.fixture()) -> None:
     job = _main_test(
         test_func=lambda: gemini_batch_predict_bigquery.batch_predict_gemini_createjob(
             output_uri
-            )
+        )
     )
     assert OUTPUT_TABLE in job.output_location

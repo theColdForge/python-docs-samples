@@ -75,6 +75,8 @@ def update_consumer_group(
         response = client.update_consumer_group(request=request)
         print("Updated consumer group:", response)
     except NotFound as e:
-        print(f"Failed to update consumer group {consumer_group_id} with error: {e.message}")
+        print(
+            f"Failed to update consumer group {consumer_group_id} with error: {e.message}"
+        )
 
     # [END managedkafka_update_consumergroup]
