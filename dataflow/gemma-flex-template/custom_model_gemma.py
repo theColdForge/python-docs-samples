@@ -163,14 +163,17 @@ if __name__ == "__main__":
     with beam.Pipeline(options=beam_options) as pipeline:
         _ = (
             pipeline
-            | "Subscribe to Pub/Sub" >> beam.io.ReadFromPubSub(subscription=args.messages_subscription)
+            | "Subscribe to Pub/Sub"
+            >> beam.io.ReadFromPubSub(subscription=args.messages_subscription)
             | "Decode" >> beam.Map(lambda msg: msg.decode("utf-8"))
             | "RunInference Gemma" >> RunInference(handler)
-            | "Format output" >> beam.Map(
+            | "Format output"
+            >> beam.Map(
                 lambda response: json.dumps(
                     {"input": response.example, "outputs": response.inference}
                 )
             )
             | "Encode" >> beam.Map(lambda msg: msg.encode("utf-8"))
-            | "Publish to Pub/Sub" >> beam.io.gcp.pubsub.WriteToPubSub(topic=args.responses_topic)
+            | "Publish to Pub/Sub"
+            >> beam.io.gcp.pubsub.WriteToPubSub(topic=args.responses_topic)
         )

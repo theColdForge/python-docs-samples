@@ -527,7 +527,7 @@ class Utils:
         cmd = ["gcloud", "auth", "configure-docker"]
         logging.info(f"{cmd}")
         subprocess.check_call(cmd)
-        gcr_project = project.replace(':', '/')
+        gcr_project = project.replace(":", "/")
 
         if substitutions:
             cmd_substitutions = [
@@ -568,8 +568,7 @@ class Utils:
             ]
             logging.info(f"{cmd}")
             subprocess.check_call(cmd)
-            logging.info(
-                f"Created image: gcr.io/{gcr_project}/{image_name}:{UUID}")
+            logging.info(f"Created image: gcr.io/{gcr_project}/{image_name}:{UUID}")
             yield f"{image_name}:{UUID}"
         else:
             raise ValueError("must specify either `config` or `image_name`")
@@ -587,8 +586,7 @@ class Utils:
             ]
             logging.info(f"{cmd}")
             subprocess.check_call(cmd)
-            logging.info(
-                f"Deleted image: gcr.io/{gcr_project}/{image_name}:{UUID}")
+            logging.info(f"Deleted image: gcr.io/{gcr_project}/{image_name}:{UUID}")
 
     @staticmethod
     def dataflow_job_url(
@@ -765,7 +763,7 @@ class Utils:
     ) -> str:
         # https://cloud.google.com/sdk/gcloud/reference/dataflow/flex-template/build
         template_gcs_path = f"gs://{bucket_name}/{template_file}"
-        gcr_project = project.replace(':', '/')
+        gcr_project = project.replace(":", "/")
         cmd = [
             "gcloud",
             "dataflow",
@@ -774,7 +772,7 @@ class Utils:
             template_gcs_path,
             f"--project={project}",
             f"--image=gcr.io/{gcr_project}/{image_name}",
-            "--sdk-language=PYTHON"
+            "--sdk-language=PYTHON",
         ]
         if metadata_file:
             cmd.append(f"--metadata-file={metadata_file}")
@@ -794,34 +792,38 @@ class Utils:
         parameters: dict[str, str] = {},
         project: str = PROJECT,
         region: str = REGION,
-        additional_experiments: dict[str,str] = {},
+        additional_experiments: dict[str, str] = {},
     ) -> str:
         import yaml
 
         # https://cloud.google.com/sdk/gcloud/reference/dataflow/flex-template/run
         unique_job_name = Utils.hyphen_name(job_name)
         logging.info(f"dataflow_job_name: {unique_job_name}")
-        cmd = [
-            "gcloud",
-            "dataflow",
-            "flex-template",
-            "run",
-            unique_job_name,
-            f"--template-file-gcs-location={template_path}",
-            f"--project={project}",
-            f"--region={region}",
-            f"--staging-location=gs://{bucket_name}/staging",
-        ] + [
-            f"--parameters={name}={value}"
-            for name, value in {
-                **parameters,
-            }.items()
-        ] + [
-            f"--additional-experiments={name}={value}"
-            for name, value in {
-                **additional_experiments,
-            }.items()
-        ]
+        cmd = (
+            [
+                "gcloud",
+                "dataflow",
+                "flex-template",
+                "run",
+                unique_job_name,
+                f"--template-file-gcs-location={template_path}",
+                f"--project={project}",
+                f"--region={region}",
+                f"--staging-location=gs://{bucket_name}/staging",
+            ]
+            + [
+                f"--parameters={name}={value}"
+                for name, value in {
+                    **parameters,
+                }.items()
+            ]
+            + [
+                f"--additional-experiments={name}={value}"
+                for name, value in {
+                    **additional_experiments,
+                }.items()
+            ]
+        )
         logging.info(f"{cmd}")
 
         stdout = subprocess.check_output(cmd).decode("utf-8")

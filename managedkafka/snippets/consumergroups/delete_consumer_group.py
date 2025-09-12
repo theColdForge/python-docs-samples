@@ -54,6 +54,8 @@ def delete_consumer_group(
         client.delete_consumer_group(request=request)
         print("Deleted consumer group")
     except NotFound as e:
-        print(f"Failed to delete consumer group {consumer_group_id} with error: {e.message}")
+        print(
+            f"Failed to delete consumer group {consumer_group_id} with error: {e.message}"
+        )
 
     # [END managedkafka_delete_consumergroup]

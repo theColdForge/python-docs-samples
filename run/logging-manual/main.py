@@ -48,9 +48,9 @@ def index():
 
         if trace_header and PROJECT:
             trace = trace_header.split("/")
-            global_log_fields[
-                "logging.googleapis.com/trace"
-            ] = f"projects/{PROJECT}/traces/{trace[0]}"
+            global_log_fields["logging.googleapis.com/trace"] = (
+                f"projects/{PROJECT}/traces/{trace[0]}"
+            )
 
     # Complete a structured log entry.
     entry = dict(

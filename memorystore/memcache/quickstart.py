@@ -50,7 +50,9 @@ def create_instance(project_id: str, location_id: str, instance_id: str) -> None
     print(f"Instance {instance_id} was created")
 
 
-def get_instance(project_id: str, location_id: str, instance_id: str) -> memcache_v1.Instance:
+def get_instance(
+    project_id: str, location_id: str, instance_id: str
+) -> memcache_v1.Instance:
     """
     Get a Memcached instance.
 
@@ -62,9 +64,7 @@ def get_instance(project_id: str, location_id: str, instance_id: str) -> memcach
     client = memcache_v1.CloudMemcacheClient()
 
     name = f"projects/{project_id}/locations/{location_id}/instances/{instance_id}"
-    request = memcache_v1.GetInstanceRequest(
-        name=name
-    )
+    request = memcache_v1.GetInstanceRequest(name=name)
 
     try:
         instance = client.get_instance(request=request)
@@ -106,9 +106,7 @@ def delete_instance(project_id: str, location_id: str, instance_id: str) -> None
     client = memcache_v1.CloudMemcacheClient()
 
     name = f"projects/{project_id}/locations/{location_id}/instances/{instance_id}"
-    request = memcache_v1.DeleteInstanceRequest(
-        name=name
-    )
+    request = memcache_v1.DeleteInstanceRequest(name=name)
 
     try:
         operation = client.delete_instance(request=request)
@@ -131,6 +129,7 @@ def quickstart(project_id: str, location_id: str, instance_id: str) -> None:
     instance = get_instance(project_id, location_id, instance_id)
     update_instance(instance, "new_name")
     delete_instance(project_id, location_id, instance_id)
+
 
 # [END memorystorememcache_quickstart]
 

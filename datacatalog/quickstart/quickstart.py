@@ -56,21 +56,21 @@ def quickstart(override_values):
 
     tag_template.fields["source"] = datacatalog_v1.types.TagTemplateField()
     tag_template.fields["source"].display_name = "Source of data asset"
-    tag_template.fields[
-        "source"
-    ].type_.primitive_type = datacatalog_v1.types.FieldType.PrimitiveType.STRING
+    tag_template.fields["source"].type_.primitive_type = (
+        datacatalog_v1.types.FieldType.PrimitiveType.STRING
+    )
 
     tag_template.fields["num_rows"] = datacatalog_v1.types.TagTemplateField()
     tag_template.fields["num_rows"].display_name = "Number of rows in data asset"
-    tag_template.fields[
-        "num_rows"
-    ].type_.primitive_type = datacatalog_v1.types.FieldType.PrimitiveType.DOUBLE
+    tag_template.fields["num_rows"].type_.primitive_type = (
+        datacatalog_v1.types.FieldType.PrimitiveType.DOUBLE
+    )
 
     tag_template.fields["has_pii"] = datacatalog_v1.types.TagTemplateField()
     tag_template.fields["has_pii"].display_name = "Has PII"
-    tag_template.fields[
-        "has_pii"
-    ].type_.primitive_type = datacatalog_v1.types.FieldType.PrimitiveType.BOOL
+    tag_template.fields["has_pii"].type_.primitive_type = (
+        datacatalog_v1.types.FieldType.PrimitiveType.BOOL
+    )
 
     tag_template.fields["pii_type"] = datacatalog_v1.types.TagTemplateField()
     tag_template.fields["pii_type"].display_name = "PII type"
