@@ -110,9 +110,9 @@ def random_existing_tag_template_id(client, project_id, resources_to_delete):
     random_tag_template_id = f"python_sample_{temp_suffix()}"
     random_tag_template = datacatalog_v1.types.TagTemplate()
     random_tag_template.fields["source"] = datacatalog_v1.types.TagTemplateField()
-    random_tag_template.fields[
-        "source"
-    ].type_.primitive_type = datacatalog_v1.FieldType.PrimitiveType.STRING.value
+    random_tag_template.fields["source"].type_.primitive_type = (
+        datacatalog_v1.FieldType.PrimitiveType.STRING.value
+    )
     random_tag_template = client.create_tag_template(
         parent=datacatalog_v1.DataCatalogClient.common_location_path(
             project_id, LOCATION

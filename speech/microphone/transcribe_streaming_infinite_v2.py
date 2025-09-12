@@ -302,7 +302,7 @@ def main(project_id: str) -> None:
         explicit_decoding_config=cloud_speech_types.ExplicitDecodingConfig(
             sample_rate_hertz=SAMPLE_RATE,
             encoding=cloud_speech_types.ExplicitDecodingConfig.AudioEncoding.LINEAR16,
-            audio_channel_count=1
+            audio_channel_count=1,
         ),
         language_codes=["en-US"],
         model="long",
@@ -311,7 +311,7 @@ def main(project_id: str) -> None:
         config=recognition_config,
         streaming_features=cloud_speech_types.StreamingRecognitionFeatures(
             interim_results=True
-        )
+        ),
     )
     config_request = cloud_speech_types.StreamingRecognizeRequest(
         recognizer=f"projects/{project_id}/locations/global/recognizers/_",
@@ -350,7 +350,8 @@ def main(project_id: str) -> None:
 
             # Transcribes the audio into text
             responses_iterator = client.streaming_recognize(
-                requests=requests(config_request, audio_generator))
+                requests=requests(config_request, audio_generator)
+            )
 
             listen_print_loop(responses_iterator, stream)
 

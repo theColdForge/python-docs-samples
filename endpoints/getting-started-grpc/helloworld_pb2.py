@@ -124,7 +124,7 @@ HelloRequest = _reflection.GeneratedProtocolMessageType(
     (_message.Message,),
     dict(
         DESCRIPTOR=_HELLOREQUEST,
-        __module__="helloworld_pb2"
+        __module__="helloworld_pb2",
         # @@protoc_insertion_point(class_scope:helloworld.HelloRequest)
     ),
 )
@@ -135,7 +135,7 @@ HelloReply = _reflection.GeneratedProtocolMessageType(
     (_message.Message,),
     dict(
         DESCRIPTOR=_HELLOREPLY,
-        __module__="helloworld_pb2"
+        __module__="helloworld_pb2",
         # @@protoc_insertion_point(class_scope:helloworld.HelloReply)
     ),
 )
