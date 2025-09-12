@@ -175,7 +175,7 @@ def analyze_content_audio(
     )
     requests = request_generator(audio_config, audio_file_path)
     responses = client.streaming_analyze_content(requests=requests)
-    results = [response for response in responses]
+    results = list(responses)
     print("=" * 20)
     for result in results:
         print(f'Transcript: "{result.message.content}".')
